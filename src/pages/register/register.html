@@ -1,0 +1,85 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Register</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="onSavePressed()">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-top>
+  <ion-title>
+    Registration Form
+  </ion-title>
+  <ion-list padding>
+      
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input [(ngModel)]="register.firstName" type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input [(ngModel)]="register.lastName" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Sex</ion-label>
+      <ion-select [(ngModel)]="register.sex" interface="action-sheet">
+        <ion-option value="M">Male</ion-option>
+        <ion-option value="F">Femail</ion-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Date of birth</ion-label>
+      <ion-datetime [(ngModel)]="register.dateOfBirth" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Country of Birth</ion-label>
+      <ion-input [(ngModel)]="register.country" type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>ID Number</ion-label>
+      <ion-input [(ngModel)]="register.idNumber" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Document Type</ion-label>
+      <ion-select [(ngModel)]="register.idType" interface="action-sheet">
+        <ion-option value="nationalID">National ID</ion-option>
+        <ion-option value="passport">Passsport</ion-option>
+        <ion-option value="driversLicense">Driver's License</ion-option>
+        <ion-option value="nie">NIE</ion-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Date of issue</ion-label>
+      <ion-datetime [(ngModel)]="register.idDateOfIssue" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
+    </ion-item>
+    
+</ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button icon-start block (click)="scanToast()">
+      <ion-icon name="qr-scanner"></ion-icon>
+      Scan
+    </button>
+  </ion-toolbar>
+</ion-footer>

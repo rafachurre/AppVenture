@@ -1,0 +1,100 @@
+<!--
+  Generated template for the DocumentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Documents</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="documents-list-page" padding-top>
+  <div>
+    <ion-segment [(ngModel)]="documents_segment_value">
+      <ion-segment-button value="pending-documents">
+        Pending
+      </ion-segment-button>
+      <ion-segment-button value="submitted-documents">
+        Submitted
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="documents_segment_value">
+    <ion-list no-lines *ngSwitchCase="'submitted-documents'" class="">
+      <ion-item-divider color="light">Submitted</ion-item-divider>
+      <ion-item-sliding *ngFor="let d of submittedDocs">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/icon/pdf-icon.png">
+          </ion-thumbnail>
+          <h2>{{ d.name }}</h2>
+          <p><b>Signed:</b> <span>{{ d.signedDate }}</span></p>
+          <p><b>Submitted:</b> <span>{{ d.submittedDate }}</span></p>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button icon-end outline>
+            <ion-icon name="cloud-download"></ion-icon>
+            Download
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list no-lines *ngSwitchCase="'pending-documents'">
+
+      <ion-item-divider color="light">Not Signed</ion-item-divider>
+
+      <ion-item-sliding *ngFor="let d of notSignedDocs">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/icon/pdf-icon.png">
+          </ion-thumbnail>
+          <h2>{{ d.name }}</h2>
+          <p><b>Signed:</b> <span>{{ d.signedDate }}</span></p>
+          <p><b>Submitted:</b> <span>{{ d.submittedDate }}</span></p>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button icon-end outline>
+            <ion-icon name="download"></ion-icon>
+            Download
+          </button>
+          <button ion-button icon-end outline color="secondary">
+            <ion-icon name="create"></ion-icon>
+            Sign
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      
+      <ion-item-divider color="light">Signed</ion-item-divider>
+
+      <ion-item-sliding *ngFor="let d of signedDocs">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/icon/pdf-icon.png">
+          </ion-thumbnail>
+          <h2>{{ d.name }}</h2>
+          <p><b>Signed:</b> <span>{{ d.signedDate }}</span></p>
+          <p><b>Submitted:</b> <span>{{ d.submittedDate }}</span></p>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button icon-end outline>
+            <ion-icon name="download"></ion-icon>
+            Download
+          </button>
+          <button ion-button icon-end outline color="secondary">
+            <ion-icon name="cloud-upload"></ion-icon>
+            Submit
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+</ion-content>

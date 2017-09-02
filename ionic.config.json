@@ -1,0 +1,8 @@
+{
+  "name": "AppVenture",
+  "app_id": "3e50da90",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
